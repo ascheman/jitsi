@@ -1143,34 +1143,34 @@ public class NetworkUtils
      */
     private static String determineAnyAddress()
     {
-        Enumeration<NetworkInterface> ifaces;
-        try
-        {
-            ifaces = NetworkInterface.getNetworkInterfaces();
-        }
-        catch (SocketException e)
-        {
-            if (logger.isDebugEnabled())
-                logger.debug("Couldn't retrieve local interfaces.", e);
-            return IN4_ADDR_ANY;
-        }
-        catch (NullPointerException e)
-        {
-            if (logger.isDebugEnabled())
-                logger.debug("Couldn't retrieve local interfaces.", e);
-            return IN4_ADDR_ANY;
-        }
-
-        while(ifaces.hasMoreElements())
-        {
-            Enumeration<InetAddress> addrs
-                                = ifaces.nextElement().getInetAddresses();
-            while (addrs.hasMoreElements())
-            {
-                if(addrs.nextElement() instanceof Inet6Address)
-                    return IN6_ADDR_ANY;
-            }
-        }
+//        Enumeration<NetworkInterface> ifaces;
+//        try
+//        {
+//            ifaces = NetworkInterface.getNetworkInterfaces();
+//        }
+//        catch (SocketException e)
+//        {
+//            if (logger.isDebugEnabled())
+//                logger.debug("Couldn't retrieve local interfaces.", e);
+//            return IN4_ADDR_ANY;
+//        }
+//        catch (NullPointerException e)
+//        {
+//            if (logger.isDebugEnabled())
+//                logger.debug("Couldn't retrieve local interfaces.", e);
+//            return IN4_ADDR_ANY;
+//        }
+//
+//        while(ifaces.hasMoreElements())
+//        {
+//            Enumeration<InetAddress> addrs
+//                                = ifaces.nextElement().getInetAddresses();
+//            while (addrs.hasMoreElements())
+//            {
+//                if(addrs.nextElement() instanceof Inet6Address)
+//                    return IN6_ADDR_ANY;
+//            }
+//        }
 
         return IN4_ADDR_ANY;
     }
