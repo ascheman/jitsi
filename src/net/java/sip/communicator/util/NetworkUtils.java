@@ -1154,6 +1154,12 @@ public class NetworkUtils
                 logger.debug("Couldn't retrieve local interfaces.", e);
             return IN4_ADDR_ANY;
         }
+        catch (NullPointerException e)
+        {
+            if (logger.isDebugEnabled())
+                logger.debug("Couldn't retrieve local interfaces.", e);
+            return IN4_ADDR_ANY;
+        }
 
         while(ifaces.hasMoreElements())
         {
